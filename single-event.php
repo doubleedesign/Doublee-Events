@@ -3,8 +3,8 @@
  * The template for displaying single events
  *
  * @package WordPress
- * @subpackage CAQI
- * @since CAQI 2.0
+ * @subpackage Doublee-Events
+ * @since Doublee-Events 1.0
  */
 
 get_header(); ?>
@@ -53,6 +53,7 @@ if(has_post_thumbnail()) {
 
 			<div class="map-wrapper small-12 large-6 columns">
 
+				<?php // Markup to show the date and location name ?>
 				<div class="date-wrapper nested row align-middle">
 					<div class="date small-3 columns">
 						<?php
@@ -102,14 +103,18 @@ if(has_post_thumbnail()) {
 				</div>
 
 				<?php
-					$ticket_link = get_field('ticketing_link');
-					if (($ticket_link) && ($status == 'upcoming')) { ?>
-						<a class="large primary expanded button" href="<?php echo $ticket_link; ?>" target="_blank">
-							Tickets<i class="fas fa-external-link-alt"></i>
-						</a>
+				// Show the ticketing link if the event is upcoming
+				$ticket_link = get_field('ticketing_link');
+				if (($ticket_link) && ($status == 'upcoming')) { ?>
+					<a class="large primary expanded button" href="<?php echo $ticket_link; ?>" target="_blank">
+						Tickets<i class="fas fa-external-link-alt"></i>
+					</a>
 				<?php } ?>
 
-				<?php get_template_part('template-parts/minimap'); ?>
+				<?php
+				// Show the map
+				get_template_part('template-parts/minimap');
+				?>
 
 			</div>
 		</div>
