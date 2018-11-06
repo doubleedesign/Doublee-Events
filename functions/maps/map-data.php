@@ -7,7 +7,7 @@ as the map template part has the potential to get quite messy given the amount o
 */
 
 // Use WP_Query inside a function to get an indexed array of address IDs
-function caqi_get_address_ids() {
+function doublee_get_address_ids() {
 	
 	// WP_Query arguments
 	$args = array(
@@ -31,7 +31,7 @@ function caqi_get_address_ids() {
 }
 
 // Function to get the lat and long of a given address (entered in the lat and long fields in WP) and store them in an array
-function caqi_get_address_data($id) {
+function doublee_get_address_data($id) {
 	
 	$address_id = $id;
 	$map = get_field('location', $address_id);
@@ -48,7 +48,7 @@ function caqi_get_address_data($id) {
 }
 
 // Function to output the info windows on the map. This is what you want to edit if you want to include different data in the box.
-function caqi_map_info_box($id) {
+function doublee_map_info_box($id) {
 	
 	// Get the info from WordPress.
 	$image = get_field('logo', $id);

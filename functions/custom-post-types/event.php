@@ -1,6 +1,6 @@
 <?php
 // Register Custom Post Type
-	function caqi_event() {
+	function doublee_event() {
 
 		$labels = array(
 			'name'                  => _x( 'Events', 'Post Type General Name', 'caqi' ),
@@ -53,4 +53,4 @@
 		register_post_type( 'event', $args );
 
 	}
-	add_action( 'init', 'caqi_event', 0 );
+	add_action( 'init', 'doublee_event', 0 );

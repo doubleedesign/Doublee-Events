@@ -8,7 +8,7 @@
 
 	// Get the ID and data array for this address
 	$id = $post->ID;
-	$data = caqi_get_address_data($id);
+	$data = doublee_get_address_data($id);
 
 	// Get the name (post title in WP), make it all lowercase, and strip whitespace, numbers and symbols (because they break JS!)
 	$name = get_the_title($id);
@@ -54,8 +54,8 @@
 
 		// Custom icon
 		<?php
-		if(function_exists('caqi_get_browser')) {
-		if(caqi_get_browser() == 'ie') { ?>
+		if(function_exists('doublee_get_browser')) {
+		if(doublee_get_browser() == 'ie') { ?>
 			var icon = '<?php echo get_stylesheet_directory_uri();?>/assets/map-marker.png'; // IE marker pin image
 		<?php } else { ?>
 			var icon = '<?php echo get_stylesheet_directory_uri();?>/assets/map-marker.svg'; // default marker pin image
@@ -83,7 +83,7 @@
 			echo '});';
 
 			// Get the info window content and store it in a variable
-			$info = caqi_map_info_box($id);
+			$info = doublee_map_info_box($id);
 
 			// Output the JS required to put the $info content into the relevant JS variable for use in the info windows
 			echo "var contentString_marker".$id . " = '".$info."';";
